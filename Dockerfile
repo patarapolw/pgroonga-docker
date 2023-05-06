@@ -9,7 +9,7 @@ RUN apt-get update
 RUN apt-get install -y curl
 RUN curl -O https://packages.groonga.org/debian/groonga-apt-source-latest-bullseye.deb
 RUN apt-get install -y ./groonga-apt-source-latest-bullseye.deb
-RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
 RUN curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 RUN apt-get update
 RUN apt-get install -y postgresql-12-pgdg-pgroonga
