@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    restart: always
+    build: .
+    environment:
+      POSTGRES_USER: &pguser postgres
+      POSTGRES_PASSWORD: &pgpass postgres_pass
+      POSTGRES_DB: &pgdb postgres
+
+      TZ: &tz Asia/Bangkok
+      PGTZ: *tz
+    ports:
+      - 5433:5432 # pgAdmin connection port
+
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+      - ./initdb.d:/docker-entrypoint-initdb.d
+      - ~/.postgresql:/root/.postgresql
